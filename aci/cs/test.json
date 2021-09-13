@@ -1,0 +1,107 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2021-09-13T15:31:12.338253+01:00",
+            "magic": "25ff35eb2fae40d93bc09f0c28dba28b6a6c73228e44b41f98c7670f813f2894",
+            "version": "v3.11.0"
+        },
+        "secrets_providers": {
+            "type": "service",
+            "state": {
+                "url": "https://api.pulumi.com",
+                "owner": "stack72",
+                "project": "aci-cs",
+                "stack": "dev"
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:dev::aci-cs::pulumi:pulumi:Stack::aci-cs-dev",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack"
+            },
+            {
+                "urn": "urn:pulumi:dev::aci-cs::pulumi:providers:azure-native::default_1_28_0",
+                "custom": true,
+                "id": "48ba6ec7-7204-4a67-83a5-1f14634f296e",
+                "type": "pulumi:providers:azure-native",
+                "inputs": {
+                    "location": "WestUS",
+                    "version": "1.28.0"
+                },
+                "outputs": {
+                    "location": "WestUS",
+                    "version": "1.28.0"
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::aci-cs::azure-native:resources:ResourceGroup::aci-rg",
+                "custom": true,
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/aci-rgc17663e7",
+                "type": "azure-native:resources:ResourceGroup",
+                "inputs": {
+                    "__createBeforeDelete": true,
+                    "location": "WestUS",
+                    "resourceGroupName": "aci-rgc17663e7"
+                },
+                "outputs": {
+                    "__inputs": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "AAABANDxVNKij863cmciNrXlk5+JCAInEf3+8YHyzNVZirRdhCq+Isf69WiyKKTj1bOjzpvk7F329Jp67bRNCp9hoWa4Fa/nqQ0GBogspdPMbpwYPm9dkBoxHP3uj5goSqksb6agXE7hsVn3TWyRvaHiE9PksA=="
+                    },
+                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/aci-rgc17663e7",
+                    "location": "westus",
+                    "name": "aci-rgc17663e7",
+                    "properties": {
+                        "provisioningState": "Succeeded"
+                    },
+                    "type": "Microsoft.Resources/resourceGroups"
+                },
+                "parent": "urn:pulumi:dev::aci-cs::pulumi:pulumi:Stack::aci-cs-dev",
+                "provider": "urn:pulumi:dev::aci-cs::pulumi:providers:azure-native::default_1_28_0::48ba6ec7-7204-4a67-83a5-1f14634f296e",
+                "aliases": [
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20151101:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20151101:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20160201:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20160201:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20160701:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20160701:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20160901:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20160901:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20170510:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20170510:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20180201:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20180201:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20180501:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20180501:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20190301:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20190301:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20190501:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20190501:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20190510:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20190510:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20190701:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20190701:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20190801:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20190801:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20191001:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20191001:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20200601:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20200601:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20200801:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20200801:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20201001:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20201001:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20210101:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20210101:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-native:resources/v20210401:ResourceGroup::aci-rg",
+                    "urn:pulumi:dev::aci-cs::azure-nextgen:resources/v20210401:ResourceGroup::aci-rg"
+                ]
+            }
+        ],
+        "pending_operations": [
+        ]
+    }
+}

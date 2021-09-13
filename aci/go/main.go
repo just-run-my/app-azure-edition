@@ -1,0 +1,59 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure/containerinstance"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure/resources"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		resourceGroup, err := resources.NewResourceGroup(ctx, "aci-rg", nil)
+		if err != nil {
+			return err
+		}
+
+		imageName := "mcr.microsoft.com/azuredocs/aci-helloworld"
+		containerGroup, err := containerinstance.NewContainerGroup(ctx, "helloworld", &containerinstance.ContainerGroupArgs{
+			ResourceGroupName: resourceGroup.Name,
+			OsType:            pulumi.String("Linux"),
+			Containers: &containerinstance.ContainerArray{
+				&containerinstance.ContainerArgs{
+					Name:  pulumi.String("acilinuxpublicipcontainergroup"),
+					Image: pulumi.String(imageName),
+					Ports: &containerinstance.ContainerPortArray{
+						&containerinstance.ContainerPortArgs{Port: pulumi.Int(80)},
+					},
+					Resources: &containerinstance.ResourceRequirementsArgs{
+						Requests: &containerinstance.ResourceRequestsArgs{
+							Cpu:        pulumi.Float64(1.0),
+							MemoryInGB: pulumi.Float64(1.5),
+						},
+					},
+				},
+			},
+			IpAddress: &containerinstance.IpAddressArgs{
+				Ports: &containerinstance.PortArray{
+					&containerinstance.PortArgs{
+						Port:     pulumi.Int(80),
+						Protocol: pulumi.String("Tcp"),
+					},
+				},
+				Type: pulumi.String("Public"),
+			},
+			RestartPolicy: pulumi.String("always"),
+		})
+		if err != nil {
+			return err
+		}
+
+		ctx.Export("containerIPv4Address", containerGroup.IpAddress.ApplyT(func(ip *containerinstance.IpAddressResponse) (string, error) {
+			if ip == nil || ip.Ip == nil {
+				return "", nil
+			}
+			return *ip.Ip, nil
+		}).(pulumi.StringOutput))
+
+		return nil
+	})
+}

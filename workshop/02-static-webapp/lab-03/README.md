@@ -126,7 +126,3 @@ Check out the website!
 ```
 curl $(pulumi stack output url)
 ```
-
-# Next Steps
-
-* [Deploy with Docker](../lab-03/README.md)

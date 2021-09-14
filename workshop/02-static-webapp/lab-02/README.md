@@ -21,3 +21,7 @@ const storageAccount = new storage.StorageAccount("app", {
 });
 ```
 You'll notice that we can use Pulumi's enums support here to populate values, no need to look up the allowed values!
+
+# Next Steps
+
+* [Create your static website](../lab-02/README.md)

@@ -6,6 +6,7 @@
     "dependencies": {
         "@pulumi/azure-native": "^1.0.0",
         "@pulumi/azuread": "^5.0.0",
+        "@pulumi/kubernetes": "^3.7.1",
         "@pulumi/pulumi": "^3.0.0",
         "@pulumi/tls": "^4.0.0"
     }

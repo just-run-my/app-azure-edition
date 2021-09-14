@@ -25,4 +25,4 @@ const sshKey = new tls.PrivateKey("ssh-key", {
 
 # Next Steps
 
-* [Create a private key](../lab-02/README.md)
+* [Create an AKS Cluster](../lab-03/README.md)

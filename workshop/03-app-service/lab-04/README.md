@@ -17,7 +17,7 @@ And finally for this step, define your Docker image resource:
 ```typescript
 const image = new docker.Image("app", {
     imageName: pulumi.interpolate`${registry.loginServer}/app:latest`,
-    build: { context: `../wwwroot` },
+    build: { context: `./node-app` },
     registry: {
         server: registry.loginServer,
         username: adminUsername,

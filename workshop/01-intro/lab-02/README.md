@@ -4,7 +4,7 @@ In this lab, we'll create our first Pulumi resource. We'll run a Docker containe
 
 ## Step 1 - Verify your Application
 
-We have a preconfigured python webserver application in our repo. Take a look at `app/typescript/index.ts`
+We have a preconfigured python webserver application in our repo. Take a look at `app/index.ts`
 
 ```typescript
 import express = require('express');
@@ -27,7 +27,7 @@ app.listen(listenPort, function() {
 
 This file creates a webserver with TypeScript, using the [morgan](https://www.npmjs.com/package/morgan) and [express](https://www.npmjs.com/package/express) packages.
 
-Next, let's create a `Dockerfile` at the root of our application folder:
+Next, let's create a `Dockerfile` at the root of our Pulumi application folder:
 
 ```
 FROM node:12-buster-slim
@@ -35,7 +35,7 @@ FROM node:12-buster-slim
 WORKDIR /app
 
 COPY *.json /app/
-COPY index.ts /app/
+COPY app/index.ts /app/
 
 RUN apt-get update && apt-get install -y wget
 RUN npm install && npm run env -- tsc index.ts

@@ -34,7 +34,7 @@ class MyStack : Stack
         var files = Directory.GetFiles("../wwwroot");
         foreach (var file in files)
         {
-            var name = file.Substring(8);
+            var name = Path.GetFileName(file);
             var objDetails = new Blob(name, new BlobArgs
             {
                 ResourceGroupName = resourceGroup.Name,

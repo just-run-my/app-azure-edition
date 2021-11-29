@@ -70,5 +70,10 @@ const containerGroup = new containerinstance.ContainerGroup("containerGroup", {
     restartPolicy: "always",
 });
 
-export const containerIPv4Address = containerGroup.ipAddress.apply(ip => ip?.ip);
+const ip = containerGroup.ipAddress.apply(ip => ip?.ip);
+export const containerIPv4Address = pulumi.interpolate`http://${ip}`;
 ```
+
+# Next Steps
+
+* [Provision your infrastructure](../lab-03/README.md)

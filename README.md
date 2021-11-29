@@ -18,7 +18,7 @@ The hands-on workshop will walk you through various tasks of managing Azure infr
 
 ### Node.js
 
-You will need Node.js version 10 or later to run Pulumi programs written in [TypeScript](https://www.typescriptlang.org/).
+You will need Node.js version 14 or later to run Pulumi programs written in [TypeScript](https://www.typescriptlang.org/).
 Install your desired LTS version from [the Node.js download page](https://nodejs.org/en/download/) or
 [using a package manager](https://nodejs.org/en/download/package-manager/).
 
@@ -26,14 +26,14 @@ After installing, verify that Node.js is working:
 
 ```bash
 $ node --version
-v12.10.0
+v14.17.0
 ```
 
 Also verify that the Node Package Manager (NPM) is working:
 
 ```bash
 $ npm --version
-6.10.3
+6.14.13
 ```
 
 ### Azure Subscription and CLI
@@ -64,7 +64,7 @@ You will use Pulumi to depoy infrastructure changes using code. [Install Pulumi 
 
 ```bash
 $ pulumi version
-v3.1.0
+v3.18.1
 ```
 
 The Pulumi CLI will ask you to login to your Pulumi account as needed. If you prefer to signup now, [go to the signup page](http://app.pulumi.com/signup). Multiple identity provider options are available &mdash; email, GitHub, GitLab, or Atlassian &mdash; and each of them will work equally well for these labs.

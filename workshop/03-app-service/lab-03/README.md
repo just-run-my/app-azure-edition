@@ -35,41 +35,10 @@ const adminPassword = credentials.apply(credentials => credentials.passwords![0]
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as resources from "@pulumi/azure-native/resources";
-import * as storage from "@pulumi/azure-native/storage";
 import * as web from "@pulumi/azure-native/web";
 import * as containerregistry from "@pulumi/azure-native/containerregistry";
 
-const resourceGroup = new resources.ResourceGroup("app");
-
-const storageAccount = new storage.StorageAccount("app", {
-  enableHttpsTrafficOnly: true,
-  kind: storage.Kind.StorageV2,
-  resourceGroupName: resourceGroup.name,
-  sku: {
-    name: storage.SkuName.Standard_LRS,
-  },
-});
-
-const staticWebsite = new storage.StorageAccountStaticWebsite("app", {
-  accountName: storageAccount.name,
-  resourceGroupName: resourceGroup.name,
-  indexDocument: "index.html",
-  error404Document: "404.html",
-});
-
-["index.html", "404.html"].map(
-  (name) =>
-    new storage.Blob(name, {
-      resourceGroupName: resourceGroup.name,
-      accountName: storageAccount.name,
-      containerName: staticWebsite.containerName,
-      source: new pulumi.asset.FileAsset(`../wwwroot/${name}`),
-      contentType: "text/html",
-    })
-);
-
-// Web endpoint to the website
-export const url = storageAccount.primaryEndpoints.web;
+const resourceGroup = new resources.ResourceGroup("appservice-app")
 
 const plan = new web.AppServicePlan("plan", {
     resourceGroupName: resourceGroup.name,
@@ -99,6 +68,7 @@ const credentials = pulumi.all([resourceGroup.name, registry.name]).apply(
 // assign the retrieved values to constants once they are resolved
 const adminUsername = credentials.apply(credentials => credentials.username!);
 const adminPassword = credentials.apply(credentials => credentials.passwords![0].value!);
+```
 
 # Next Steps
 

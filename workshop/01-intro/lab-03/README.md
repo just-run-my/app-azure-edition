@@ -11,7 +11,7 @@ Add the following to your Pulumi program below your imports:
 
 ```typescript
 const config = new pulumi.Config();
-const port = config.require("port")
+const port = config.requireNumber("port")
 ```
 Your Pulumi program should now look like this:
 
@@ -26,7 +26,7 @@ const imageName = "my-first-app"
 const stack = pulumi.getStack();
 
 const image = new docker.Image('local-image', {
-    build: '../app/typescript',
+    build: './app/typescript',
     imageName: `${imageName}:${stack}`,
     skipPush: true,
 })

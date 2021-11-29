@@ -27,7 +27,7 @@ app.listen(listenPort, function() {
 
 This file creates a webserver with TypeScript, using the [morgan](https://www.npmjs.com/package/morgan) and [express](https://www.npmjs.com/package/express) packages.
 
-Next, let's create a Dockerfile at `app/typescript/Dockerfile`
+Next, let's create a `Dockerfile` at the root of our application folder:
 
 ```
 FROM node:12-buster-slim
@@ -50,6 +50,13 @@ CMD [ "node", "index.js" ]
 
 This `Dockerfile` takes care of running the `TypeScript` compile inside our Docker container, and then running our new webserver.
 
+Ensure you npm install `morgan` and `express`.
+
+```bash
+npm install morgan
+npm install express
+```
+
 ## Step 2 - Build your Docker Image with Pulumi
 
 Back inside your pulumi program, let's build your Docker image. Inside your `index.ts` add the following:
@@ -64,7 +71,7 @@ const stack = pulumi.getStack();
 const imageName = "my-first-app"
 
 const image = new docker.Image('local-image', {
-    build: '../app/typescript',
+    build: '.',
     imageName: `${imageName}:${stack}`,
     skipPush: true,
 })

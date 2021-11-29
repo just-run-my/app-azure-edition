@@ -27,7 +27,7 @@ app.listen(listenPort, function() {
 
 This file creates a webserver with TypeScript, using the [morgan](https://www.npmjs.com/package/morgan) and [express](https://www.npmjs.com/package/express) packages.
 
-Next, let's take a look at our `Dockerfile`
+Next, let's create a Dockerfile at `app/typescript/Dockerfile`
 
 ```
 FROM node:12-buster-slim
@@ -37,6 +37,7 @@ WORKDIR /app
 COPY *.json /app/
 COPY index.ts /app/
 
+RUN apt-get update && apt-get install -y wget
 RUN npm install && npm run env -- tsc index.ts
 # use dumb-init so docker containers respect signals
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 && chmod +x /usr/local/bin/dumb-init

@@ -31,5 +31,5 @@ You'll notice, the existing infrastructure (ie our static site in our bucket) re
 Check out the result!
 
 ```
-curl $(pulumi stack output webAppUrl)
+curl $(pulumi stack output containerIPv4Address)
 ```

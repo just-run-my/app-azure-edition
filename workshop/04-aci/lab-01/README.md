@@ -1,5 +1,7 @@
 # Step 1 &mdash; Create a Resource Group
 
+This assumes that `pulumi new azure-typescript` has been run
+
 In order to get a location for the resources, we need to ensure that the provider is configured with a default location. This location will then
 be used to create  all the resources in:
 

@@ -40,6 +40,7 @@ export const containerIPv4Address = containerGroup.ipAddress.apply(ip => ip?.ip)
 > At this stage, your `index.ts` file should look like this:
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as containerinstance from "@pulumi/azure-native/containerinstance";
 import * as resources from "@pulumi/azure-native/resources";
 

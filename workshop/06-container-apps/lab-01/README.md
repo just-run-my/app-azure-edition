@@ -1,4 +1,4 @@
-## Step 1 &mdash; Create a Resource Group
+# Step 1 &mdash; Create a Resource Group
 
 This assumes that `pulumi new azure-typescript` has been run
 
@@ -18,7 +18,7 @@ import * as resources from "@pulumi/azure-native/resources";
 Next, define your resourceGroup. In Pulumi, this is done by creating a constant, and assigning the resourceGroup resource to that constant, like so:
 
 ```typescript
-const resourceGroup = new resources.ResourceGroup("aks-app")
+const resourceGroup = new resources.ResourceGroup("container-apps")
 ```
 
 > At this stage, your `index.ts` file should look like this:
@@ -27,9 +27,9 @@ const resourceGroup = new resources.ResourceGroup("aks-app")
 import * as pulumi from "@pulumi/pulumi";
 import * as resources from "@pulumi/azure-native/resources";
 
-const resourceGroup = new resources.ResourceGroup("aks-app")
+const resourceGroup = new resources.ResourceGroup("container-apps")
 ```
 
 # Next Steps
 
-* [Create a private key](../lab-02/README.md)
+* [Create ACI service](../lab-02/README.md)

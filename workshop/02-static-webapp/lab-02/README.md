@@ -24,4 +24,4 @@ You'll notice that we can use Pulumi's enums support here to populate values, no
 
 # Next Steps
 
-* [Create your static website](../lab-02/README.md)
+* [Create your static website](../lab-03/README.md)

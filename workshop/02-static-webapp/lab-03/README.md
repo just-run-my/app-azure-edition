@@ -15,7 +15,33 @@ const staticWebsite = new storage.StorageAccountStaticWebsite("myFirstApp", {
 
 ## Step 4 &mdash; Upload your Static Files
 
-Our final step for our static website is to upload some files to it. In the previous step, we added a `StorageAccountStaticWebsite`. We can now upload some files to this using the container property.
+Let's create a `wwwroot` folder in our Pulumi application root:
+
+```bash
+mkdir wwwroot
+```
+
+In that `wwwroot` folder , we are going to create an `index.html` file and a `404.html` file:
+
+```index.html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Hello from Pulumi!!!</h1>
+</body>
+</html>
+```
+
+```404.html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Page Not Found</h1>
+</body>
+</html>
+```
+
+Our final step for our static website is to upload the files above to it. In the previous step, we added a `StorageAccountStaticWebsite`. We can now upload some files to this using the container property.
 
 Because Pulumi is using `TypeScript`, we can use familiar mechanisms like loops, so let's loop through all the files in our sample app and upload them.
 
@@ -28,7 +54,7 @@ Add the following to your `index.ts` file:
       resourceGroupName: resourceGroup.name,
       accountName: storageAccount.name,
       containerName: staticWebsite.containerName,
-      source: new pulumi.asset.FileAsset(`../wwwroot/${name}`),
+      source: new pulumi.asset.FileAsset(`wwwroot/${name}`),
       contentType: "text/html",
     })
 );

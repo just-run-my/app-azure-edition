@@ -37,6 +37,7 @@ const ns = new k8s.core.v1.Namespace("ns", {
 Then, we'll define a Kubernetes deployment and service for our application. First, define the deployment like so:
 
 ```typescript
+const appLabels = { app: "kuard" };
 const app = new k8s.apps.v1.Deployment(
   "deployment",
   {
